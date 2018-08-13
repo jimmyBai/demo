@@ -1,0 +1,57 @@
+{
+		"loginNavTabs":{
+			"REGISTER":"REGISTER",
+			"SIGNIN":"SIGN IN"
+		},
+    "login": {
+			"loginTitle":"Welcome Back!",
+			"inputUser":"E-mail",
+			"inputPwd":"Password",
+			"userTips":"Your e-mail address",
+			"pwdTips":"Your password",
+			"btnText":"SIGN IN",
+			"resetPwd":"Reset password",
+			"addAccount":"Create new account",
+			"regTitle":"Start making the world greener Today!",
+			"regFirstName":"First Name",
+			"regLastName":"Last Name",
+			"regEmail":"E-mail",
+			"regPassword":"Password",
+			"regFirstNameTips":"First Name",
+			"regLastNameTips":"Last Name",
+			"regEmailTips":"Your e-mail address",
+			"regPasswordTips":"Your password",
+			"regBtn":"RESISTER",
+			"regBackLogin":"Already Membeer? Sign in"
+        
+    },
+    "page": {
+      "itemA":"Impact Assessment",
+			"itemB":"Data Input",
+			"assessment":{
+				"title":"What material would you like to look at?",
+				"nextBtn":"NEXT"
+			},
+			"countrypage":{
+				"title":"Specify Country of Production Processes for",
+				"gobackFab":"< Back to fabric selection",
+				"tbProSatge":"Production Stage",
+				"selCountry":"Select Countsy",
+				"getScroe":"GET SCORE"
+			},
+			"scorePage":{
+				"newCountrySelection":"Compare with New Country Selection",
+				"countrySet":"Country Setting",
+				"impactScore":"Impact Score",
+				"impactScoreInfo":"Impact Score Breakdown",
+				"impactLevel":"Impact Level",
+				"tbtitle":"Animal and Social Impact"
+			},
+			"unit":{
+				"lkg":"L/kg",
+				"kg":"kg/kg",
+				"kwh":"kWh/kg",
+				"eqkg":"kg eq/kg"
+			}
+    }
+}
