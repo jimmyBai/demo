@@ -27,16 +27,16 @@ let drawMain=function(drawing_elem, percent, forecolor, bgcolor) {
 
 	//绘制运动圆环
 	function foregroundCircle(n){
-			context.save();
-			context.strokeStyle = forecolor;
-			context.lineWidth = 20;
-			context.lineCap = "round";
-			var radius = center_x - context.lineWidth;
-			context.beginPath();
-			context.arc(center_x, center_y, radius , -Math.PI/2, -Math.PI/2 +n*rad, false); //用于绘制圆弧context.arc(x坐标，y坐标，半径，起始角度，终止角度，顺时针/逆时针)
-			context.stroke();
-			context.closePath();
-			context.restore();
+		context.save();
+		context.strokeStyle = forecolor;
+		context.lineWidth = 20;
+		// context.lineCap = "round";
+		var radius = center_x - context.lineWidth;
+		context.beginPath();
+		context.arc(center_x, center_y, radius , -Math.PI/2, -Math.PI/2 +n*rad, false); //用于绘制圆弧context.arc(x坐标，y坐标，半径，起始角度，终止角度，顺时针/逆时针)
+		context.stroke();
+		context.closePath();
+		context.restore();
 	}
 
 	//绘制文字

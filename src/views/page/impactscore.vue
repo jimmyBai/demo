@@ -98,6 +98,9 @@
 			<div class="flex-echart">
 				<div class="left">
 					<div class="name"><span v-text="$t('page.scorePage.impactLevel')"></span></div>
+					<div class="time-graph">
+						<div id="myChart" :style="{width: '200px', height: '200px'}"></div>
+					</div>
 					<div class="echartScore">
 						
 					</div>
@@ -174,6 +177,7 @@
 </template>
 <script>
 import drawMain from '../../utils/circleCanvas.js'
+import echarts from 'echarts'
 export default {
   name: 'assessment',
   data () {
@@ -302,6 +306,10 @@ export default {
 		
 		var country1 = document.getElementById("country1");
 		drawMain(country1, 22, "#8cce87", "#b2b2b2");
+		this.$nextTick(() => {
+			this.drawLine()
+			
+		})
 	},
 	methods:{
 		openCountry(){
@@ -311,6 +319,65 @@ export default {
 			this.$router.push('/page/comparecountry')
 		},
 		updatascore(){
+		},
+		//echarts
+		drawLine(){
+			// 基于准备好的dom，初始化echarts实例
+			document.getElementById('myChart').style.width=200;
+			document.getElementById('myChart').style.height=200;
+      let myChart = echarts.init(document.getElementById('myChart'))
+      // 绘制图表
+			let option = {
+					tooltip : {
+							show:false,
+							formatter: "{a} <br/>{b} : {c}%",
+					},
+					toolbox: {
+						show : false,
+						feature: {
+								restore: {},
+								saveAsImage: {}
+						}
+					},
+					series: [
+						{
+							name: '业务指标',
+							type: 'gauge',
+							startAngle: 180,
+							endAngle : 0,
+							min: 0,                     // 最小值
+							max: 100,                   // 最大值
+							axisLine: {            // 坐标轴线
+									show: true,        // 默认显示，属性show控制显示与否
+									lineStyle: {       // 属性lineStyle控制线条样式
+											color: [[0.2, '#8cce87'],[0.4, '#c8eec5'],[0.6, '#ffcd6c'],[0.8, '#ff8f2f'],[1, '#ea3232']], 
+											
+									}
+							},
+							axisTick: {            // 坐标轴小标记
+                show: false,
+							},
+							splitLine:{
+								show: false,
+							},
+							axisLabel: {           // 坐标轴文本标签，详见axis.axisLabel
+								show: false,
+							},
+							detail : {
+								show : false,
+							},
+							title : {
+                show : false,
+							},
+							data: [{value: 50, name: '完成率'}],
+						},							
+					]
+			};
+							
+			setInterval(function () {
+					option.series[0].data[0].value = (Math.random() * 100).toFixed(2) - 0;
+					myChart.setOption(option, true);
+			},2000);
 		}	
 	},
 }
